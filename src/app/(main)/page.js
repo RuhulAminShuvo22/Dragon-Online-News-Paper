@@ -22,7 +22,7 @@ export default async function Home() {
 
         <div className=" col-span-3">
 
-              <LeftSidebar categories={categories}></LeftSidebar>
+              <LeftSidebar categories={categories} activeId={null}></LeftSidebar>
               
         </div>
 
