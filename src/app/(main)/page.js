@@ -1,4 +1,5 @@
 import LeftSidebar from "@/components/homepage/news/LeftSidebar";
+import RightSidebar from "@/components/homepage/news/RightSidebar";
 import { div, object } from "framer-motion/client";
 import Image from "next/image";
 
@@ -32,8 +33,8 @@ export default async function Home() {
         </div>
 
 
-        <div className="font-bold text-3xl bg-yellow-100 col-span-3">
-              Social Icons
+        <div className="  col-span-3">
+              <RightSidebar></RightSidebar>
         </div>
 
 
