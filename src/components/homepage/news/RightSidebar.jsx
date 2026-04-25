@@ -70,7 +70,7 @@ const RightSidebar = () => {
 
                     <div className="bg-white p-2 rounded shadow text-center">
                         <img 
-                            src="https://cdn-icons-png.flaticon.com/512/861/861512.png" 
+                            src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500" 
                             alt="Playground" 
                             className="mx-auto"
                         />
