@@ -1,4 +1,4 @@
-
+import { compareAsc, format } from "date-fns";
 import Image from 'next/image'
 import logo from '@/assets/logo.png'
 
@@ -7,7 +7,11 @@ const Header = () => {
     <div className='text-center py-8 space-y-4'>
       <Image className="mx-auto" src={logo} width={300} height={200} alt="Logo" />
       <p>Journalism With Fear or Favour</p>
-      <p>Date</p>
+      <p>{format(new Date(), "EEEE, MMM dd, yyyy")}</p>
+
+      
+
+
       
     </div>
   );
