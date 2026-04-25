@@ -1,12 +1,14 @@
 import Navbar from '@/components/shared/Navbar';
+import { div } from 'framer-motion/client';
 import React from 'react';
+import { montserrat } from '../layout';
 
 const AuthLayout = ({children}) => {
     return (
-        <>
-        <Navbar></Navbar>
-        {children}
-        </>
+        <div className={`${montserrat.className}`} >
+            <Navbar></Navbar>
+            {children}
+        </div>
     );
 };
 
