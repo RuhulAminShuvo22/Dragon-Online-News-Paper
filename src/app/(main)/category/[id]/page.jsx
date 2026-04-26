@@ -23,13 +23,13 @@ const news = await getNewsByCategoryId(id)
         <LeftSidebar categories={categories} activeId={id}></LeftSidebar>
       </div>
 
-      <div className="font-bold  col-span-6">
+      <div className=" col-span-6">
         <h2 className='font-bold text-lg'>News by Category</h2>
         <div className="space-y-4 mt-6">
           {news.length > 0 ?  news.map((n) => {
             return (
               <NewsCard 
-                key={n._id} news={news}>
+                key={n._id} news={n}>
                  
                 </NewsCard>
                 );

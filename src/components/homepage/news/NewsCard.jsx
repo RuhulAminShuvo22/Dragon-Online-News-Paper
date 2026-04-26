@@ -1,11 +1,42 @@
+import Image from 'next/image';
 import React from 'react';
 
-const NewsCard = ({news}) => {
+const NewsCard = ({ news }) => {
     console.log(news, "news")
 
     return (
-        <div>
-            {news.title}
+        <div className="card bg-base-100 w-96 shadow-sm">
+            <div className="card-body">
+                {/* author info */}
+
+                <div>
+
+                    <div>
+                        <Image 
+                            src={news.author?.img} 
+                            alt={news.author?.name} 
+                            height={40} 
+                            width={40}
+                            >
+                        </Image>
+                    </div>
+
+                    <div>
+
+
+                    </div>
+
+                </div>
+
+
+                <h2 className="card-title">{news.title}</h2>
+                <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
+            </div>
+            <figure>
+                <img
+                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+                    alt="Shoes" />
+            </figure>
         </div>
     );
 };
