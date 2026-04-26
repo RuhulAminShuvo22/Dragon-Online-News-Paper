@@ -34,7 +34,7 @@ const news = await getNewsByCategoryId(id)
   return (
     <div className="container mx-auto grid grid-cols-12 gap-4 my-[60px]">
       <div className=" col-span-3">
-        <LeftSidebar categories={categories} activeId={null}></LeftSidebar>
+        <LeftSidebar categories={categories} activeId={id}></LeftSidebar>
       </div>
 
       <div className="font-bold  bg-purple-100 col-span-6">

@@ -13,7 +13,7 @@ const LeftSidebar = ({categories , activeId }) => {
                     categories.news_category.map(category => {
                         return( 
                         <li key={category.category_id} className={`
-                        ${activeId === category.category_id && "bg-slate-100" }
+                        ${activeId === category.category_id && "bg-purple-500 text-white" }
                           rounded-md font-bold text-center text-md`}>
                             
                             {/* {category.category_name} */}
