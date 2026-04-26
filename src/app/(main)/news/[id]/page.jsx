@@ -4,6 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { FaBookmark, FaEye, FaShareAlt, FaStar } from 'react-icons/fa';
 import { getNewsDetailsById } from '@/lib/data';
+import { BsArrowRight } from 'react-icons/bs';
 
 const NewsDetailsPage = async ({params}) => {
     const {id} = await params
@@ -11,7 +12,7 @@ const NewsDetailsPage = async ({params}) => {
     const news = await getNewsDetailsById(id)
     console.log(news, "news")
     return (
-        <div className='container mx-auto my-8 card'>
+        <div className='max-w-4xl mx-auto my-8 card'>
 
             {/* <h2>news details page</h2> */}
              <div className="card bg-base-100 shadow-sm">
@@ -58,16 +59,16 @@ const NewsDetailsPage = async ({params}) => {
                                     className="w-full h-[250px] object-cover"
                                 />
                             </figure>
-                            <p className='line-clamp-3'>{news.details}</p>
+                            <p className=''>{news.details}</p>
             
                             <div className='flex items-center justify-between gap-2'>
                                 <div className='flex items-center gap-2 '>
                                     <h2 className='flex items-center gap-2 '><FaStar className='text-lg text-red-500'/>{news.rating.number} </h2>
                                     <h2 className='flex items-center gap-2 '><FaEye className='text-lg'/>{news.total_view}</h2>
                                 </div>
-                                <Link href={`/news/${news._id}`}>
-                                    <button className='btn'>
-                                        See Details
+                                <Link href={`/category/${news.category_id}`}>
+                                    <button className='btn bg-purple-500 text-white'>
+                                        See Other News for this category <BsArrowRight></BsArrowRight>
                                     </button>
                                 </Link>
                                 
