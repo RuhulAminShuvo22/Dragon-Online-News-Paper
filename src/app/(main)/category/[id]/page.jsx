@@ -1,4 +1,5 @@
 import LeftSidebar from '@/components/homepage/news/LeftSidebar';
+import NewsCard from '@/components/homepage/news/NewsCard';
 import RightSidebar from '@/components/homepage/news/RightSidebar';
 import { getCategories, getNewsByCategoryId } from '@/lib/data';
 import { h2 } from 'framer-motion/client';
@@ -26,8 +27,14 @@ const news = await getNewsByCategoryId(id)
         <h2 className='font-bold text-lg'>News by Category</h2>
         <div className="space-y-4 mt-6">
           {news.length > 0 ?  news.map((n) => {
-            return <div key={n._id} className="p-6 rounded-md border">{n.title}</div>;
-          }): <h2 className='font-bold text-4xl text-center my-7'>No news found</h2>}
+            return (
+              <NewsCard 
+                key={n._id} news={news}>
+                 
+                </NewsCard>
+                );
+          }):
+           <h2 className='font-bold text-4xl text-center my-7'>No news found</h2>}
         </div>
       </div>
 
