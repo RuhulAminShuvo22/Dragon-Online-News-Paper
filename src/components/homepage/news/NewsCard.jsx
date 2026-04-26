@@ -59,8 +59,9 @@
 
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
-import { FaBookmark, FaShareAlt } from 'react-icons/fa';
+import { FaBookmark, FaEye, FaShareAlt, FaStar } from 'react-icons/fa';
 
 const NewsCard = ({ news }) => {
     console.log(news, "news");
@@ -110,7 +111,20 @@ const NewsCard = ({ news }) => {
                         className="w-full h-[250px] object-cover"
                     />
                 </figure>
-                <p>{news.details}</p>
+                <p className='line-clamp-3'>{news.details}</p>
+
+                <div className='flex items-center justify-between gap-2'>
+                    <div className='flex items-center gap-2 '>
+                        <h2 className='flex items-center gap-2 '><FaStar className='text-lg text-red-500'/>{news.rating.number} </h2>
+                        <h2 className='flex items-center gap-2 '><FaEye className='text-lg'/>{news.total_view}</h2>
+                    </div>
+                    <Link href={`/news/${news._id}`}>
+                        <button className='btn'>
+                            See Details
+                        </button>
+                    </Link>
+                    
+                </div>
 
             </div>
 
