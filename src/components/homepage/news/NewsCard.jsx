@@ -47,72 +47,74 @@
 //                     alt={news.title}
 //                     height={300}
 //                     width={300}
+//                     className='w-full'
 //                 ></Image>
 //             </figure>
+//             <p>{news.details}</p>
 //         </div>
 //     );
 // };
 
 // export default NewsCard;
 
+
 import Image from 'next/image';
 import React from 'react';
 import { FaBookmark, FaShareAlt } from 'react-icons/fa';
 
 const NewsCard = ({ news }) => {
-    console.log(news);
-
-    const authorImg =
-        news?.author?.img || "https://i.ibb.co/2kRZ8FZ/user.png";
-
-    const newsImg =
-        news?.image_url || "https://i.ibb.co/4pDNDk1/no-image.png";
+    console.log(news, "news");
 
     return (
-        <div className="card bg-base-100 shadow-md rounded-xl overflow-hidden">
+        <div className="card bg-base-100 shadow-sm">
+            <div className="card-body">
 
-            {/* 🔹 Author */}
-            <div className="flex justify-between items-center bg-slate-200 p-4">
+                {/* author info */}
+                <div className='flex justify-between items-center bg-slate-200 p-4'>
 
-                <div className="flex gap-2 items-center">
-                    {/* 👉 Next Image OK here */}
-                    <Image
-                        src={authorImg}
-                        alt="author"
-                        height={40}
-                        width={40}
-                        className="rounded-full"
-                    />
+                    <div className='flex gap-1 items-center'>
+                        <Image
+                            src={news.author?.img || "https://i.ibb.co/2kRZ8FZ/user.png"}
+                            alt={news.author?.name || "author"}
+                            height={40}
+                            width={40}
+                            className='rounded-full'
+                        />
 
-                    <div>
-                        <h2 className="font-semibold text-sm">
-                            {news?.author?.name || "Unknown"}
-                        </h2>
-                        <p className="text-xs text-gray-500">
-                            {news?.author?.published_date || "No date"}
-                        </p>
+                        <div>
+                            <h2 className='font-semibold'>
+                                {news.author?.name || "Unknown"}
+                            </h2>
+                            <p className='text-xs'>
+                                {news.author?.published_date || "No date"}
+                            </p>
+                        </div>
                     </div>
+
+                    <div className='flex justify-between items-center gap-2'>
+                        <FaShareAlt className='text-xl' />
+                        <FaBookmark className='text-xl' />
+                    </div>
+
                 </div>
 
-                <div className="flex gap-3">
-                    <FaShareAlt />
-                    <FaBookmark />
-                </div>
+                <h2 className="card-title">{news.title}</h2>
+                <p>
+                    {news.details?.slice(0, 100) || "No description"}...
+                </p>
+                {/* 🔥 MAIN FIX (Image → img) */}
+                <figure>
+                    <img
+                        src={news.image_url || "https://i.ibb.co/4pDNDk1/no-image.png"}
+                        alt={news.title}
+                        className="w-full h-[250px] object-cover"
+                    />
+                </figure>
+                <p>{news.details}</p>
+
             </div>
 
-            {/* 🔹 Title */}
-            <div className="p-4">
-                <h2 className="font-bold text-lg">{news?.title}</h2>
-            </div>
 
-            {/* 🔥 MAIN FIX HERE */}
-            <figure className="px-4 pb-4">
-                <img
-                    src={newsImg}
-                    alt="news"
-                    className="w-full h-[250px] object-cover rounded-xl"
-                />
-            </figure>
         </div>
     );
 };
