@@ -1,14 +1,30 @@
-import { param } from 'framer-motion/client';
+import { param, title } from 'framer-motion/client';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaBookmark, FaEye, FaShareAlt, FaStar } from 'react-icons/fa';
 import { getNewsDetailsById } from '@/lib/data';
-import { BsArrowRight } from 'react-icons/bs';
+import { BsArrowRight } from 'react-icons/bs'; 
+
+
+export const generateMetadata = async ({params})=>{
+    const {id} = await params;
+    console.log(id, " params");
+    const news = await getNewsDetailsById(id);
+    console.log(news, "news");
+
+    return{
+        title: news.title,
+        description: news.details,
+    }
+}
+  
 
 const NewsDetailsPage = async ({params}) => {
     const {id} = await params
     console.log(id,"params")
+
+
     const news = await getNewsDetailsById(id)
     console.log(news, "news")
     return (
