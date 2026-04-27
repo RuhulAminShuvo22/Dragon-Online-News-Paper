@@ -2,14 +2,14 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const LoginPage = () => {
 
-    const handleLoginFunc = (e)=> {
-        e.preventDefault();
-        const email = e.target.email.value ;
-        const password = e.target.password.value ;
-        console.log(email, password)
+    const {register, handleSubmit}  = useForm()
+
+    const handleLoginFunc = (data)=> {
+        console.log(data,"data")
     }
 
 
@@ -19,14 +19,15 @@ const LoginPage = () => {
             <div className='p-4 rounded-xl bg-white'>
                 <h2 className='font-bold text-3xl text-center mb-6'>Login your Account</h2>
 
-                <form className='space-y-4' onSubmit={handleLoginFunc}>
+                <form className='space-y-4' onSubmit={handleSubmit(handleLoginFunc)}>
 
                     <fieldset className="fieldset" >
                         <legend className="fieldset-legend">Email Address</legend>
                         <input 
                         type="email" 
                         className="input" 
-                        name='email'
+                        //name='email'
+                        {...register("email")}
                         placeholder="Type your email" />
                         
                     </fieldset>
@@ -36,7 +37,8 @@ const LoginPage = () => {
                         <input 
                         type="password" 
                         className="input" 
-                        name='password'
+                        //name='password'
+                        {...register("password")}
                         placeholder="Type your password" />
                         
                     </fieldset>
