@@ -41,7 +41,7 @@ const LoginPage = () => {
                         
                     </fieldset>
 
-                    <button className="btn btn-active w-full bg-slate-800 text-white">Login</button>
+                    <button type="submit" className="btn btn-active w-full bg-slate-800 text-white">Login</button>
 
                 </form>
                 <br />
