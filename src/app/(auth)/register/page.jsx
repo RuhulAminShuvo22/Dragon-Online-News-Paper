@@ -15,8 +15,8 @@ const RegisterPage = () => {
 
     const handleRegisterFunc = (data)=> {
         console.log(data,"data")
-        const {email, name, photo, password} = data;
-        console.log(name,email,photo,password)
+        // const {email, name, photo, password} = data;
+        // console.log(name,email,photo,password)
     }
 
     // console.log(watch("email"))
