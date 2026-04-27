@@ -19,8 +19,8 @@ const RegisterPage = () => {
         console.log(name,email,photo,password)
     }
 
-    console.log(watch("email"))
-    console.log(watch("password"))
+    // console.log(watch("email"))
+    // console.log(watch("password"))
 
 
 
