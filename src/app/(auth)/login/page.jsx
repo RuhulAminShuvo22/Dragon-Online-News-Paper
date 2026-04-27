@@ -1,9 +1,38 @@
+import Link from 'next/link';
 import React from 'react';
 
 const LoginPage = () => {
     return (
-        <div>
-            <h2>login page</h2>
+        <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
+            <div className='p-4 rounded-xl bg-white'>
+                <h2 className='font-bold text-3xl text-center mb-6'>Login your Account</h2>
+
+                <form className='space-y-4'>
+
+                    <fieldset className="fieldset">
+                        <legend className="fieldset-legend">Email Address</legend>
+                        <input 
+                        type="email" 
+                        className="input" 
+                        placeholder="Type your email" />
+                        
+                    </fieldset>
+
+                    <fieldset className="fieldset">
+                        <legend className="fieldset-legend">Password</legend>
+                        <input 
+                        type="password" 
+                        className="input" 
+                        placeholder="Type your password" />
+                        
+                    </fieldset>
+
+                    <button className="btn btn-active w-full bg-slate-800 text-white">Login</button>
+
+                </form>
+                <br />
+                <p>Do Not Have An Account ? <Link href={"/register"} className='text-red-500'>Register</Link> </p>
+            </div>
         </div>
     );
 };
