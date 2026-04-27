@@ -2,15 +2,23 @@
 
 import Link from 'next/link';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Watch } from 'react-hook-form';
 
 const LoginPage = () => {
 
-    const {register, handleSubmit}  = useForm()
+    const {
+        register, 
+        handleSubmit,
+        watch, 
+        formState: {errors},
+    }  = useForm()
 
     const handleLoginFunc = (data)=> {
         console.log(data,"data")
     }
+
+    // console.log(watch("email"))
+    // console.log(watch("password"))
 
 
 
@@ -27,8 +35,9 @@ const LoginPage = () => {
                         type="email" 
                         className="input" 
                         //name='email'
-                        {...register("email")}
+                        {...register("email",{ required: "email field is required" })}
                         placeholder="Type your email" />
+                        {errors.email  && <p className='text-red-500'>{errors.email.message}</p>}
                         
                     </fieldset>
 
@@ -38,8 +47,9 @@ const LoginPage = () => {
                         type="password" 
                         className="input" 
                         //name='password'
-                        {...register("password")}
+                        {...register("password",{ required: "password field is required" })}
                         placeholder="Type your password" />
+                        {errors.password  && <p className='text-red-500'>{errors.password.message}</p>}
                         
                     </fieldset>
 
