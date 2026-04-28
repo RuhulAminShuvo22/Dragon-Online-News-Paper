@@ -2,7 +2,7 @@
 
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm, Watch } from 'react-hook-form';
 
 const LoginPage = () => {
@@ -30,7 +30,7 @@ const LoginPage = () => {
     // console.log(watch("email"))
     // console.log(watch("password"))
 
-
+    //const [isShowPassword, setIsShowPassword] = useState("false")
 
     return (
         <div className='container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100'>
@@ -54,7 +54,7 @@ const LoginPage = () => {
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend">Password</legend>
                         <input 
-                        type="password" 
+                        type= "password"
                         className="input" 
                         //name='password'
                         {...register("password",{ required: "password field is required" })}
